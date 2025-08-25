@@ -1,0 +1,121 @@
+@use 'fonts'
+@use 'variables' as *
+@use 'mixins' as *
+
+*, *:before, *:after
+  box-sizing: border-box
+  padding: 0
+  margin: 0
+  font-family: 'Comfortaa', sans-serif
+
+svg
+  height: 20px
+  width: 20px
+  fill: var(--font-color)
+
+input
+  background: var(--background-opacity)
+  color: var(--font-color)
+  border: none
+
+textarea
+  background: var(--background-opacity)
+  color: var(--font-color)
+  border: none
+  padding: $padding-s
+  border-radius: $border-radius
+
+button[type="submit"]
+  @include btn-stroke(var(--background-opacity))
+.container
+  max-width: 1200px
+  margin: 0 auto
+  width: 90%
+
+.text-opacity
+  opacity: 0.5
+
+.sr-only
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  clip: rect(0, 0, 0, 0)
+  white-space: nowrap
+  border: 0
+
+.modal
+  position: fixed
+  inset: 0
+  background: var(--background-dark-opacity)
+  z-index: 1000
+
+  &__container
+    position: absolute
+    transform: translate(-50%, -50%)
+    top: 50%
+    left: 50%
+    display: flex
+    gap: 8px
+    align-items: flex-start
+
+  &__active
+    background: var(--background-dark)
+    padding: $padding-xl
+    border-radius: $border-radius
+    box-shadow: var(--shadow)
+    display: flex
+    flex-direction: column
+    gap: $gap-l
+
+  &__form
+    display: flex
+    flex-direction: column
+    text-align: start
+    gap: $gap-s
+
+  &__label
+    display: flex
+    flex-direction: column
+    gap: $gap-xs
+    text-align: left
+
+    & input
+      padding: $padding-s
+      border-radius: $border-radius-full
+
+      &:required:invalid:focus
+        outline: none
+
+      &:required:invalid:not(:focus)
+        outline: 2px solid var(--todo-background)
+        outline-offset: 1px
+
+    & textarea
+      min-width: 200px
+      max-width: 60vw
+      min-height: 150px
+      max-height: 60vh
+
+  &__close
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: $padding-xs
+    border-radius: $border-radius-full
+    border: none
+    background: var(--background-dark)
+    box-shadow: var(--shadow)
+    cursor: pointer
+    transition: $transition
+
+    & svg
+      fill: var(--font-color)
+
+    &:hover
+      background: var(--font-color)
+
+    &:hover svg
+      fill: var(--background-dark)

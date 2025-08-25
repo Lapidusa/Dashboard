@@ -40,9 +40,10 @@
 
 > git clone https://github.com/Lapidusa/Dashboard
 
-> cd Dashboard
+> cd Kanban
 
-**Копируем env**<br />
+#### Копируем env
+
 В Windows PowerShell:
 >Copy-Item .\backend\.env.example .\backend\.env <br />
 >Copy-Item .\frontend\.env.example .\frontend\.env
